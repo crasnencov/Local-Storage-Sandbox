@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8">
+    <title>Тестовое задание</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/posts.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body class="span8">
+{{2+2}}
+<header id="header">
+    <div class="page-header">
+        <h1>Тестовое задание для фронтенд разработчиков</h1>
+    </div>
+    <h2>Задача:</h2>
+    <ol>
+        <li>Используя коллекцию <code>json/posts.json</code> заполнить базовыми значениями <code>localStorage</code>
+            пользователя, вывести записи в <code>#posts</code>, взяв за основу разметку <code>#posts article</code>.
+        </li>
+        <li>Возможность удаления записи из <code>localStorage</code>.</li>
+        <li>Форма добавления записи, валидация данных.</li>
+    </ol>
+    <p class="alert alert-info">Ограничений по использованию библиотек, кроссбраузерности &mdash; нет.</p>
+</header>
+
+<section id="body">
+
+    <div id="posts" class="well" ng-controller="MyCtrl">
+
+        <!-- post -->
+        <article>
+            <header>
+                <!-- post.title -->
+                <h3>{{ title }}</h3>
+            </header>
+            <section>
+                <!-- post.body -->
+                <p>{{ body }}</p>
+            </section>
+            <footer>
+
+                <!-- post.tags -->
+                <div class="tags">
+                    <span class="label">{{ tag 1 }}</span> <span class="label">{{ tag 2 }}</span> … <span class="label">{{ tag N }}</span>
+                </div>
+
+                <div class="controls">
+                    <a class="btn btn-danger btn-mini">удалить</a>
+                </div>
+
+            </footer>
+        </article>
+        <!-- /post -->
+
+    </div>
+    <!-- /posts -->
+
+    <form id="post_add" class="span4">
+        <fieldset>
+
+            <input type="text" name="title" class="span4" placeholder="заголовок" ng-model="user.title"><br>
+            <textarea name="body" rows="3" class="span4" placeholder="запись" ng-model="user.body"></textarea><br>
+            <input type="text" name="tags" class="span4" placeholder="тег, еще тег"><br><br>
+
+            <button type="submit" class="btn btn-primary" ng-click="showJson()">добавить</button>
+        </fieldset>
+    </form>
+    <!-- /#post_add -->
+
+</section>
+
+</body>
+</html>
