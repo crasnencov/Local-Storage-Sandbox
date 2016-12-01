@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
     <meta charset="utf-8">
     <title>Local Storage Sandbox</title>
@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/posts.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
-    <script src="js/script.js"></script>
+
 </head>
-<body class="span8">
+<body class="span8" ng-app="root">
 {{2+2}}
 <header id="header">
     <div class="page-header">
@@ -26,29 +26,29 @@
     <p class="alert alert-info">Ограничений по использованию библиотек, кроссбраузерности &mdash; нет.</p>
 </header>
 
-<section id="body">
+<section id="body" ng-controller="myCtrl">
 
-    <div id="posts" class="well" ng-controller="MyCtrl">
+    <div id="posts" class="well">
 
         <!-- post -->
-        <article>
+        <article ng-repeat="user in users">
             <header>
                 <!-- post.title -->
-                <h3>{{ title }}</h3>
+                <h3>{{user.title}}</h3>
             </header>
             <section>
                 <!-- post.body -->
-                <p>{{ body }}</p>
+                <p>{{user.body}}</p>
             </section>
             <footer>
 
                 <!-- post.tags -->
                 <div class="tags">
-                    <span class="label">{{ tag 1 }}</span> <span class="label">{{ tag 2 }}</span> … <span class="label">{{ tag N }}</span>
+                    <span class="label">{{ }}</span> <span class="label">{{  }}</span> … <span class="label">{{  }}</span>
                 </div>
 
-                <div class="controls">
-                    <a class="btn btn-danger btn-mini">удалить</a>
+                <div class="controls" >
+                    <a class="btn btn-danger btn-mini" ng-click>удалить</a>
                 </div>
 
             </footer>
@@ -58,19 +58,20 @@
     </div>
     <!-- /posts -->
 
-    <form id="post_add" class="span4">
+    <form id="post_add" class="span4" >
         <fieldset>
 
             <input type="text" name="title" class="span4" placeholder="заголовок" ng-model="user.title"><br>
             <textarea name="body" rows="3" class="span4" placeholder="запись" ng-model="user.body"></textarea><br>
             <input type="text" name="tags" class="span4" placeholder="тег, еще тег"><br><br>
 
-            <button type="submit" class="btn btn-primary" ng-click="showJson()">добавить</button>
+            <button type="submit" class="btn btn-primary" ng-click="addUser()">добавить</button>
         </fieldset>
     </form>
     <!-- /#post_add -->
 
 </section>
 
+<script src="js/script.js"></script>
 </body>
 </html>
