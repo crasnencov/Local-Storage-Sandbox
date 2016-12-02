@@ -10,7 +10,6 @@
 
 </head>
 <body class="span8" ng-app="root">
-{{2+2}}
 <header id="header">
     <div class="page-header">
         <h1>Тестовое задание для фронтенд разработчиков</h1>
@@ -32,6 +31,7 @@
 
         <!-- post -->
         <article ng-repeat="user in users">
+            <p>{{user.id}}</p>
             <header>
                 <!-- post.title -->
                 <h3>{{user.title}}</h3>
@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="controls" >
-                    <a class="btn btn-danger btn-mini" ng-click>удалить</a>
+                    <input type="button" value="удалить" class="btn btn-danger btn-mini">
                 </div>
 
             </footer>
@@ -65,7 +65,7 @@
             <textarea name="body" rows="3" class="span4" placeholder="запись" ng-model="user.body"></textarea><br>
             <input type="text" name="tags" class="span4" placeholder="тег, еще тег"><br><br>
 
-            <button type="submit" class="btn btn-primary" ng-click="addUser()">добавить</button>
+            <button type="submit" class="btn btn-primary" ng-click="addUser(); clearInput()">добавить</button>
         </fieldset>
     </form>
     <!-- /#post_add -->
