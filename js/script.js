@@ -9,9 +9,13 @@ app.controller("myCtrl", function ($scope) {
                 title: $scope.user.title,
                 body: $scope.user.body
             });
-
             console.log($scope);
-        }
+        };
+        $scope.deleteUser = function (thisThis) {
+            var index = $scope.users.indexOf(thisThis);
+            $scope.users.splice(index, 1);
+        };
+
         $scope.clearInput = function () {
             $scope.user.title = null;
             $scope.user.body = null;

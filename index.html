@@ -41,16 +41,13 @@
                 <p>{{user.body}}</p>
             </section>
             <footer>
-
                 <!-- post.tags -->
                 <div class="tags">
                     <span class="label">{{ }}</span> <span class="label">{{  }}</span> … <span class="label">{{  }}</span>
                 </div>
-
                 <div class="controls" >
-                    <input type="button" value="удалить" class="btn btn-danger btn-mini">
+                    <input type="button" value="удалить" class="btn btn-danger btn-mini" ng-click="deleteUser(this.user)">
                 </div>
-
             </footer>
         </article>
         <!-- /post -->
